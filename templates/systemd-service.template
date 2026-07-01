@@ -1,0 +1,73 @@
+# Systemd service files for native vulnerable apps
+# Copy these to /etc/systemd/system/ and run:
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now <service-name>
+
+# === Juice Shop (Node.js via nvm) ===
+[Unit]
+Description=OWASP Juice Shop (Native)
+After=network.target
+
+[Service]
+Type=simple
+User=REPLACE_USER
+WorkingDirectory=/home/REPLACE_USER/vulnapps/juice-shop
+Environment=PATH=/home/REPLACE_USER/.nvm/versions/node/v22.23.1/bin:/usr/bin:/bin
+Environment=NODE_ENV=production
+Environment=PORT=3000
+ExecStart=/home/REPLACE_USER/.nvm/versions/node/v22.23.1/bin/npm start
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+
+# === DVGA (Python venv) ===
+[Unit]
+Description=DVGA - Damn Vulnerable GraphQL Application
+After=network.target
+
+[Service]
+Type=simple
+User=REPLACE_USER
+WorkingDirectory=/home/REPLACE_USER/vulnapps/dvga
+ExecStart=/home/REPLACE_USER/vulnapps/dvga/venv/bin/python app.py
+Restart=on-failure
+RestartSec=5
+Environment=WEB_HOST=0.0.0.0
+Environment=WEB_PORT=5013
+
+[Install]
+WantedBy=multi-user.target
+
+# === WebGoat (Java 23, self-extracting JAR) ===
+[Unit]
+Description=OWASP WebGoat (Native)
+After=network.target
+
+[Service]
+Type=simple
+User=REPLACE_USER
+WorkingDirectory=/home/REPLACE_USER/vulnapps/webgoat
+ExecStart=/home/REPLACE_USER/vulnapps/webgoat/webgoat.jar --webgoat.port=8080 --webwolf.port=9090
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+
+# === VulnerableApp (Java 23, Gradle build) ===
+[Unit]
+Description=OWASP VulnerableApp (Native)
+After=network.target
+
+[Service]
+Type=simple
+User=REPLACE_USER
+WorkingDirectory=/home/REPLACE_USER/vulnapps/vulnerableapp
+ExecStart=/usr/lib/jvm/temurin-23-jdk-amd64/bin/java -jar build/libs/VulnerableApp-1.0.0.jar --server.port=9091
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

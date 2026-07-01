@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vulnerable Apps Lab</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; min-height: 100vh; }
+        .header { text-align: center; padding: 40px 20px 20px; }
+        .header h1 { color: #58a6ff; font-size: 2em; margin-bottom: 8px; }
+        .header p { color: #8b949e; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 20px 40px 40px; max-width: 1200px; margin: 0 auto; }
+        .card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 24px; transition: all 0.3s; }
+        .card:hover { border-color: #58a6ff; transform: translateY(-2px); box-shadow: 0 4px 20px rgba(88,166,255,0.15); }
+        .card h2 { color: #58a6ff; font-size: 1.3em; margin-bottom: 10px; }
+        .card p { color: #8b949e; font-size: 0.9em; margin-bottom: 16px; line-height: 1.5; }
+        .card .tag { display: inline-block; background: #21262d; color: #8b949e; font-size: 0.75em; padding: 3px 10px; border-radius: 12px; margin-right: 5px; margin-bottom: 5px; }
+        .card .tag.java { color: #f08e3f; } .card .tag.node { color: #3fb950; } .card .tag.php { color: #a371f7; } .card .tag.python { color: #79c0ff; }
+        .card .launch { display: inline-block; background: #238636; color: #fff; text-decoration: none; padding: 8px 20px; border-radius: 6px; font-size: 0.85em; font-weight: 600; }
+        .card .launch:hover { background: #2ea043; }
+        .card .info { display: inline-block; background: #21262d; color: #58a6ff; text-decoration: none; padding: 8px 14px; border-radius: 6px; font-size: 0.85em; margin-left: 8px; }
+        .footer { text-align: center; padding: 20px; color: #484f58; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Vulnerable Apps Lab</h1>
+        <p>7 deliberately vulnerable applications for security training and testing</p>
+    </div>
+    <div class="grid">
+        <div class="card">
+            <h2>OWASP Juice Shop</h2>
+            <p>Modern web app with OWASP Top 10 vulnerabilities. Node.js/Angular.</p>
+            <div><span class="tag node">Node.js</span> <span class="tag">Modern</span></div>
+            <div style="margin-top:14px">
+                <a class="launch" href="/juice-shop/" target="_blank">Launch</a>
+                <a class="info" href="https://owasp.org/www-project-juice-shop/" target="_blank">Info</a>
+            </div>
+        </div>
+        <div class="card">
+            <h2>OWASP WebGoat</h2>
+            <p>Classic Java-based vulnerable web app with lessons. Spring Boot.</p>
+            <div><span class="tag java">Java</span> <span class="tag">Lessons</span></div>
+            <div style="margin-top:14px">
+                <a class="launch" href="/WebGoat/" target="_blank">Launch</a>
+                <a class="info" href="https://owasp.org/www-project-webgoat/" target="_blank">Info</a>
+            </div>
+        </div>
+        <div class="card">
+            <h2>OWASP Mutillidae II</h2>
+            <p>PHP/MySQL app with 40+ vulnerabilities. Great for SQLi/XSS practice.</p>
+            <div><span class="tag php">PHP</span> <span class="tag">Classic</span></div>
+            <div style="margin-top:14px">
+                <a class="launch" href="/mutillidae/" target="_blank">Launch</a>
+                <a class="info" href="https://owasp.org/www-project-mutillidae/" target="_blank">Info</a>
+            </div>
+        </div>
+        <div class="card">
+            <h2>DVGA</h2>
+            <p>Damn Vulnerable GraphQL Application. GraphQL security testing.</p>
+            <div><span class="tag python">Python</span> <span class="tag">GraphQL</span></div>
+            <div style="margin-top:14px">
+                <a class="launch" href="/dvga/" target="_blank">Launch</a>
+                <a class="info" href="https://github.com/dolevf/damn-vulnerable-graphql-application" target="_blank">Info</a>
+            </div>
+        </div>
+        <div class="card">
+            <h2>WackoPicko</h2>
+            <p>PHP photo sharing app with SQLi, XSS, CSRF, session flaws.</p>
+            <div><span class="tag php">PHP</span> <span class="tag">Legacy</span></div>
+            <div style="margin-top:14px">
+                <a class="launch" href="/wackopicko/" target="_blank">Launch</a>
+                <a class="info" href="https://github.com/adamdoupe/WackoPicko" target="_blank">Info</a>
+            </div>
+        </div>
+        <div class="card">
+            <h2>OWASP VulnerableApp</h2>
+            <p>Modular vulnerable app for scanner benchmarking. Java/Spring.</p>
+            <div><span class="tag java">Java</span> <span class="tag">Scanner</span></div>
+            <div style="margin-top:14px">
+                <a class="launch" href="/VulnerableApp/" target="_blank">Launch</a>
+                <a class="info" href="https://owasp.org/www-project-vulnerableapp/" target="_blank">Info</a>
+            </div>
+        </div>
+        <div class="card">
+            <h2>OWASP crAPI</h2>
+            <p>Completely Ridiculous API. REST API security testing. Java microservices.</p>
+            <div><span class="tag java">Java</span> <span class="tag">API</span></div>
+            <div style="margin-top:14px">
+                <a class="launch" href="/crapi/" target="_blank">Launch</a>
+                <a class="info" href="https://owasp.org/www-project-crapi/" target="_blank">Info</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        Vulnerable Apps Lab | Running natively on Ubuntu 22.04 | For authorized security training only
+    </div>
+</body>
+</html>

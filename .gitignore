@@ -1,0 +1,19 @@
+# OS files
+*.pyc
+__pycache__/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Secrets
+.env
+*.key
+*.pem
+server.crt
+server.key
+
+# Temp
+*.tmp
+*.bak
+/tmp/
